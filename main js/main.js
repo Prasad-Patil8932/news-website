@@ -8,8 +8,10 @@ function reload() {
 }
 
 async function fetchNews(query) {
-  const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-  const data = await res.json();
+  const res = await fetch(
+    `${url}${query}&from=2024-04-17&sortBy=publishedAt&apiKey=${API_KEY}`
+  );
+  let data = await res.json();
   bindData(data.articles);
 }
 function bindData(articles) {
